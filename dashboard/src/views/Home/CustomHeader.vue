@@ -7,8 +7,18 @@
         </div>
 
         <div class="flex">
-          <button class="px-6 py-2 font-bold rounded-full text-white focus:outline-none">Crie uma Conta</button>
-          <button class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none">Entrar</button>
+          <button
+            class="px-6 py-2 font-bold rounded-full text-white focus:outline-none"
+            @click="() => emit('create-account')"
+          >
+            Crie uma Conta
+          </button>
+          <button
+            class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none"
+            @click="() => emit('login')"
+          >
+            Entrar
+          </button>
         </div>
       </div>
       <div class="flex flex-col mt-28">
@@ -33,7 +43,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  setup(_, { emit }) {
+    return { emit };
+  }
+};
 </script>
 
 <style lang="postcss" scoped>
