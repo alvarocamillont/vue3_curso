@@ -8,11 +8,52 @@
       Guia de instalação e geração de suas credenciais
     </p>
   </div>
+  <div class="flex justify-center w-full h-full">
+    <div class="flex flex-col w-4/5 max-w-6xl py-10">
+      <h1 class="text-3xl font-black text-brand-darkgray">
+        Instalação e configuração
+      </h1>
+      <p class="mt-10 text-lg  text-gray-800 font-regular">
+        Esta aqui é sua chave de api
+      </p>
+      <div class="flex py-3 pl-5 pr-20 mt-2 rounded items-center bg-brand-gray w-1/2">
+        <span>{{ store.User.currentUser.apiKey }}</span>
+        <div class="flex ml-20 mr-1">
+          <icon name="copy" :color="brandColors.graydark" size="24" class="cursor-pointer" />
+          <icon name="loading" :color="brandColors.graydark" size="24" class="cursor-pointer" />
+        </div>
+      </div>
+      <p class="mt-5 text-lg text-gray-800 font-regular">
+        Coloque p script abaixo no seu site para comerçar a receber feedbacks
+      </p>
+
+      <div class="py-3 pl-5  mt-2 rounded bg-brand-gray w-1/2 overflow-x-scroll">
+        <pre>
+        &lt;script src="https://alvarocamillont-feedbacker-widget.netlify.app?api_key={{
+            store.User.currentUser.apiKey
+          }}"&gt;&lt;/script&gt;
+      </pre
+        >
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import HeaderLogged from '../../components/HeaderLogged';
+import useStore from '../../hooks/useStore';
+import pallete from '../../../palette';
+import Icon from '../../components/Icon';
+
 export default {
-  components: { HeaderLogged }
+  components: { HeaderLogged, Icon },
+  setup() {
+    const store = useStore();
+
+    return {
+      store,
+      brandColors: pallete.brand
+    };
+  }
 };
 </script>
