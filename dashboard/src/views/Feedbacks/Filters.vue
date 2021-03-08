@@ -9,7 +9,7 @@
         v-for="filter in state.filters"
         :key="filter.label"
         :class="{
-          'bg-gray-20': filter.active
+          'bg-gray-200 bg-opacity-50': filter.active
         }"
         @click="() => handlerSelect(filter)"
         class="flex items-center justify-between px-5 py-1 rounded cursor.pointer"
