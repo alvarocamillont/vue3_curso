@@ -1,9 +1,15 @@
 export default httpclient => ({
   getMe: async () => {
-    const response = await httpclient.get('/users/me');
+    const { data } = await httpclient.get('/users/me');
 
     return {
-      data: response.data
+      data
+    };
+  },
+  generateApiKey: async () => {
+    const { data } = await httpclient.post('/users/me/apikey');
+    return {
+      data
     };
   }
 });
