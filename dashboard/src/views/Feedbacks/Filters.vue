@@ -68,7 +68,7 @@ export default {
     });
 
     try {
-      const { data } = await services.feedbacks.getSummary;
+      const { data } = await services.feedbacks.getSummary();
       state.filters = applyFiltersStructure(data);
     } catch (error) {
       state.filters = applyFiltersStructure({ all: 0, issue: 0, idea: 0, other: 0 });
