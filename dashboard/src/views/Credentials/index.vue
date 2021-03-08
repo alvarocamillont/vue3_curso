@@ -53,9 +53,9 @@
 <script>
 import HeaderLogged from '../../components/HeaderLogged';
 import ContentLoader from '../../components/ContentLoader';
+import Icon from '../../components/Icon';
 import useStore from '../../hooks/useStore';
 import pallete from '../../../palette';
-import Icon from '../../components/Icon';
 import { reactive, watch } from 'vue';
 import services from '../../services';
 import { setApiKey } from '../../store/user';
